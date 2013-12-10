@@ -1,0 +1,14 @@
+div.box, div.cell {
+    display: inline-block;
+    
+}
+
+div.cell {
+    border: 2px solid green;
+    margin: 5px;
+}
+
+.cell input {
+  width: 30px;
+  height: 30px;
+}
