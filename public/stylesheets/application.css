@@ -1,12 +1,15 @@
 div.box, div.cell {
     display: inline-block;
-    
 }
 
 div.cell {
     border: 2px solid green;
     margin: 5px;
 }
+
+/*div.box {
+  border: 2px;
+}*/
 
 .cell input {
   width: 30px;
