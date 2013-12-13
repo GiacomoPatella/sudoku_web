@@ -2,11 +2,10 @@ div.box, div.cell {
     display: inline-block;
 }
 
-div.cell {
-    border: 2px solid green;
-    margin: 5px;
+div.box {
+    border: 2px solid black;
+    margin: 3px;
 }
-
 
 .cell input {
   width: 30px;
@@ -14,7 +13,6 @@ div.cell {
   font-size: 15px; 
   text-align: center;
 }
-
 
 #sudoku {
   font-size: 0;    
@@ -24,6 +22,14 @@ div.cell {
 body {
   text-align: center;
   font-family: Helvetica;
+  color: white;
+
+  background: #70bf32;
+  background: url('linear-gradient.png') 0 0 repeat-x;
+  background: -webkit-linear-gradient(#29DBFF, #FF66E6);
+  background:     -ms-linear-gradient(#29DBFF, #FF66E6);
+  background:      -o-linear-gradient(#29DBFF, #FF66E6);
+  background:         linear-gradient(#29DBFF, #FF66E6);
 }
 
 .incorrect {
@@ -32,4 +38,26 @@ body {
 
 .value-provided {
   background-color: #DDD;
+}
+
+#flash {
+  margin: 20px;
+}
+
+#buttons{
+  margin-top: -55px;
+}
+
+#buttons form {
+  display: inline;
+  padding-bottom: -250px;  
+}
+
+.check_button {
+padding-top: 50px;
+  
+}
+.check_button form {
+display: inline;
+  
 }

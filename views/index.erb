@@ -5,36 +5,53 @@
   <link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1>Life is too short for playing Sudoku...</h1>
-    <h1>...but apparently not for coding it</h1>
+    <h1>LIFE IS TOO SHORT FOR PLAYING SUDOKU...</h1>
+    <h1>...BUT APPARENTLY NOT FOR CODING IT</h1>
     <div id="flash">
       <%= flash[:notice] %>
     </div>
-    <div id="sudoku">
-        <!-- one div for each row -->
-      <form action="/" method="post">
-      <% 3.times do |row| %>
-          <div class="row">
-          <!-- we want to create separate div elements for boxes to style them using CSS -->
-            <% 3.times do |box| %>
-              <div class="box">
-              <!-- each box will have nine cells -->
-                <% 3.times do |cell_row| %>
-                <div class="cell-row">
-                  <div class="cell">
-                  <% 3.times do |cell| %>
-                  <%= partial :cell, :locals=>{:cell_index => row*27+box*3+cell_row*9+cell} %>
-                  <% end %>
-                  </div>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-        <button>Check solution</button>
-    </form>
-  </div>
-</body>
+      <div id="sudoku">
+          <!-- one div for each row -->
+        <form action="/" method="post">
+          <% 3.times do |row| %>
+            <div class="row">
+              <!-- we want to create separate div elements for boxes to style them using CSS -->
+              <% 3.times do |box| %>
+                <div class="box">
+                  <!-- each box will have nine cells -->
+                  <% 3.times do |cell_row| %>
+                    <div class="cell-row">
+                      <div class="cell">
+                          <% 3.times do |cell| %>
+                          <%= partial :cell, :locals=>{:cell_index => row*27+box*3+cell_row*9+cell} %>
+                          <% end %>
+                      </div><!--class=cell-->
+                    </div><!--class=cell-row-->
+                  <% end %><!--do |cell-row|-->
+                </div> <!--class=box-->
+              <% end %><!--do |box|-->
+            </div> <!--class=row-->
+          <% end %> <!--do |row|-->
+        </div><!-- id=sudoku-->
+        <div class="check_button">
+              <button>Check my numbers</button>
+        </form>
+          <form action="/solution" method="get">
+              <button>Show me the solution</button>
+          </form>
+        </div>
+
+        <div id="buttons">
+            <form action="/new_game?diff=easy" method="post">
+              <button>EASY</button>
+            </form>
+            <form action="/new_game?diff=medium" method="post">
+              <button>MEDIUM</button>
+            </form>
+            <form action="/new_game?diff=hard" method="post">
+              <button>HARD</button>
+            </form>
+        </div><!-- id=buttons-->
+
+  </body>
 </html>

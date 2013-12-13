@@ -18,13 +18,21 @@ def random_sudoku
   sudoku.to_s.chars
 end
 
-def puzzle(sudoku)
-  puzzle = sudoku
-  while puzzle.count("") < 40 do
-    puzzle.sample.replace("")
+def puzzle(sudoku,difficulty)
+  puzzle = sudoku.dup
+  if difficulty == "hard"
+    rate = 60
+  elsif 
+    difficulty == "medium"
+    rate = 50
+  else
+    difficulty == "easy"
+    rate = 35
   end
-# rows = sudoku.each_slice(9)
-  sudoku
+  while puzzle.count("") < rate do
+    puzzle[rand(81)] = ''
+  end
+  puzzle
 end
 
 
@@ -42,11 +50,11 @@ def box_order_to_row_order(cells)
   }
 end
 
-def generate_new_puzzle_if_necessary
+def generate_new_puzzle_if_necessary(difficulty="medium")
   return if session[:current_solution]
   sudoku = random_sudoku
   session[:solution] = sudoku
-  session[:puzzle] = puzzle(sudoku)
+  session[:puzzle] = puzzle(sudoku, difficulty)
   session[:current_solution] = session[:puzzle]
 end
 
@@ -82,3 +90,9 @@ post '/' do
   session[:check_solution] = true
   redirect to("/")
 end
+
+post '/new_game' do
+  session[:current_solution] = nil
+  generate_new_puzzle_if_necessary(params["diff"])
+  redirect to("/")
+  end
