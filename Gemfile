@@ -6,3 +6,5 @@
 
     gem 'sinatra-partial'
 
+    gem 'rack-flash3'
+

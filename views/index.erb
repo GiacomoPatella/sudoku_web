@@ -7,6 +7,9 @@
   <body>
     <h1>Life is too short for playing Sudoku...</h1>
     <h1>...but apparently not for coding it</h1>
+    <div id="flash">
+      <%= flash[:notice] %>
+    </div>
     <div id="sudoku">
         <!-- one div for each row -->
       <form action="/" method="post">

@@ -4,6 +4,9 @@ require_relative './lib/cell'
 require 'sinatra/partial' 
 set :partial_template_engine, :erb
 
+require 'rack-flash'
+use Rack::Flash
+
 require_relative './helpers/colour_helper'
 
 enable :sessions
@@ -50,6 +53,9 @@ end
 
 def prepare_to_check_solution
   @check_solution = session[:check_solution]
+  if @check_solution
+    flash[:notice] = "Incorrect values are highlighted in yellow"
+  end
   session[:check_solution] = nil
 end
 
