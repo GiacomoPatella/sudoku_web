@@ -1,10 +1,12 @@
-    source 'https://rubygems.org'
+source 'https://rubygems.org'
 
-    gem 'sinatra' # our web framework
+gem 'sinatra' # our web framework
 
-    gem 'shotgun' # for live code reloading
+gem 'shotgun' # for live code reloading
 
-    gem 'sinatra-partial'
+gem 'sinatra-partial'
 
-    gem 'rack-flash3'
+gem 'rack-flash3'
+
+gem 'newrelic_rpm'
 

@@ -9,6 +9,10 @@ use Rack::Flash
 
 require_relative './helpers/colour_helper'
 
+configure :production do
+  require 'newrelic_rpm'
+end
+
 enable :sessions
 
 def random_sudoku
